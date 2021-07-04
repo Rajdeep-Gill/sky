@@ -54,13 +54,11 @@
             </div>
         </div> 
     </div> 
-          
+    
     
         <script>
-                let beyonds = {
-                    bank: 0,
-                    purse: 0
-                }
+                let beyonds = [0, 0]
+           
 
                 let small = {
                     uuid: '8755ff336fbf4d97a2aec9be5ced6a21',
@@ -102,7 +100,6 @@
                     purse2: 0
                 }
 
-                let total = 0;   
                 let accessURL = "https://api.slothpixel.me/api/skyblock/profile/"
                 async function getBalance(){
 
@@ -113,15 +110,16 @@
 
                     let uuid = "0c45a191bfa746f5b1906c06734d140e"
 
-                    beyonds.bank = new Intl.NumberFormat().format(BeyondsData.banking.balance)
-                    beyonds.purse = new Intl.NumberFormat().format(BeyondsData.members[uuid].coin_purse)  
+                    beyonds[0] = new Intl.NumberFormat().format(BeyondsData.banking.balance)
+                    beyonds[1] = new Intl.NumberFormat().format(BeyondsData.members[uuid].coin_purse)  
                     document.getElementById("Bbal").innerHTML +=( 
                         "<h4 class = 'heading' >Strawberry:</h4>" +
-                        "Bank: $" + beyonds.bank + "<br>"
-                         + "Purse: $" + beyonds.purse +
-                         "<h4 class = 'heading'> Total: </h4>" +
-                           "$" + total
+                        "Bank: $" + beyonds[0] + "<br>"
+                         + "Purse: $" + beyonds[1] +
+                         "<h4 class = 'heading'> Total: </h4>"
                     )
+
+                    
 
                     //get small void balance
                         //profile 1
@@ -257,6 +255,7 @@
                             "Bank: $" + mas.bank + "<br>"
                          +  "Purse: $" + mas.purse
                         )
+
                         //profile 2
                         let url11 = accessURL + "Masonwalter1/Mango"
 
@@ -271,10 +270,37 @@
                             "Bank: $" + mas.bank2 + "<br>"
                          +  "Purse: $" + mas.purse2
                         )
-               }
-                
-                getBalance()
 
-       </script>
+                        let total = (
+                        BeyondsData.banking.balance + 
+                        data2.banking.balance + 
+                        data3.banking.balance + 
+                        data4.banking.balance + 
+                        data5.banking.balance +
+                        data6.banking.balance +
+                        data7.banking.balance +
+                        data8.banking.balance +
+                        data9.banking.balance +
+                        data10.banking.balance +
+                        data11.banking.balance +
+                        BeyondsData.members[uuid].coin_purse +
+                        data2.members[small.uuid].coin_purse +
+                        data3.members[small.uuid].coin_purse +
+                        data4.members[pat.uuid].coin_purse +
+                        data5.members[pat.uuid].coin_purse +
+                        data6.members[defunk.uuid].coin_purse +
+                        data7.members[defunk.uuid].coin_purse +
+                        data8.members[logy.uuid].coin_purse +
+                        data9.members[logy.uuid].coin_purse +
+                        data10.members[mas.uuid].coin_purse +
+                        data11.members[mas.uuid].coin_purse
+                        )
+                        total = new Intl.NumberFormat().format(total)
+                        document.getElementById("Bbal").innerHTML += (
+                           "$" + total
+                        )
+                } 
+             getBalance()
+        </script>
     </body>
 </html>
