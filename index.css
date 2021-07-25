@@ -5,18 +5,14 @@
 3. #5CDB95  rgb(92, 219, 149)
 4. #8EE4AF  rgb(142, 228, 175)
 5. #EDF5E1  rgb(237, 245, 225)
+    background-color: rgb(92, 219, 149);;
+
 */
 
-element {
-    --labelColor: rgb(5, 56, 107);
-    --bgcolor: rgb(55, 150, 131);
-    --c3: rgb(92, 219, 149);
-    --c4: rgb(142, 228, 175);
-    --bankLabel: rgb(237, 245, 225);
-}
+
 
 body{
-    background-color: rgb(92, 219, 149);;
+    background-color: white;
 }
 .column {
     margin: auto;
