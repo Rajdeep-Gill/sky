@@ -63,13 +63,8 @@ li{
     z-index: -1;
     position: relative;
 }
-
-* {
-    margin: 0;
-    padding: 0;
-  }
-  
- .buttons{
+ 
+.buttons{
     margin-top: 2%;
     background-color: rgb(5, 56, 107);
     font-family:Arial, Helvetica, sans-serif;
@@ -85,12 +80,15 @@ li{
     opacity: 1;
     transition: 0.3s;
     border: none;
- }
- .buttons:hover {opacity: 0.6}
+}
+.buttons:hover {opacity: 0.6}
 
- .last-join{
+.last-join{
     font-family:Arial, Helvetica, sans-serif;
     color: rgb(5, 56, 107);
     font-weight: bold;
     margin-left: 10px;
- }
+    position: absolute;
+    margin-top: 3.5%;
+    left: 1400px;
+}
