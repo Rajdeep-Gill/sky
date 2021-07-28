@@ -40,6 +40,7 @@ let mas = {
     bank2: 0,
     purse2: 0
 }
+let lastJoin
 
 let accessURL = "https://api.slothpixel.me/api/skyblock/profile/"
 async function getBalance(){
@@ -159,8 +160,17 @@ async function getBalance(){
         const data8 = await response8.json()
 
         logy.bank = new Intl.NumberFormat().format(data8.banking.balance)
-        logy.purse =  new Intl.NumberFormat().format(data8.members[logy.uuid].coin_purse)              
+        logy.purse =  new Intl.NumberFormat().format(data8.members[logy.uuid].coin_purse)         
+        
+        lastJoin = data8.members[logy.uuid].last_save
 
+        var date = new Date(lastJoin);
+        let strDate = date.toDateString()
+        strDate = strDate.substring(4)
+
+        document.getElementById("last-join").innerHTML += " " + strDate 
+   
+    
         document.getElementById("Lbal").innerHTML += (
             "<h4 class = 'heading' >Mango:</h4>" +
             "Bank: $" + logy.bank + "<br>"
