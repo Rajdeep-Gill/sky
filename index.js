@@ -57,8 +57,8 @@ async function getBalance(){
     document.getElementById("Bbal").innerHTML +=( 
         "<h4 class = 'heading' >Strawberry:</h4>" +
         "Bank: $" + beyonds[0] + "<br>"
-         + "Purse: $" + beyonds[1] +
-         "<h4 class = 'heading'> Total: </h4>"
+        + "Purse: $" + beyonds[1] +
+        "<h4 class = 'heading'> Total: </h4>"
     )
 
     
@@ -168,7 +168,6 @@ async function getBalance(){
         let strDate = date.toDateString()
         strDate = strDate.substring(4)
 
-        document.getElementById("last-join").innerHTML += " " + strDate 
    
     
         document.getElementById("Lbal").innerHTML += (
@@ -250,6 +249,9 @@ async function getBalance(){
         document.getElementById("Bbal").innerHTML += (
            "$" + total
         )
+        document.getElementById("Bbal").innerHTML += (
+           "<br> Last Login: " + strDate
+         )
 } 
 getBalance()
 
