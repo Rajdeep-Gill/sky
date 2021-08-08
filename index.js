@@ -1,44 +1,53 @@
 let beyonds = [0, 0]
            
-
 let small = {
     uuid: '8755ff336fbf4d97a2aec9be5ced6a21',
     bank: 0,
     purse: 0,
+    lastJoin: "null",
     bank2: 0,
-    purse2: 0
+    purse2: 0,
+    lastJoin2: "null"
 }
 
 let pat = {
     uuid: 'e52f09d1226247e78d6b728e17ff28ae',
     bank: 0,
     purse: 0,
+    lastJoin: "null",
     bank2: 0,
-    purse2: 0
+    purse2: 0,
+    lastJoin2: "null"
 }
 
 let defunk = {
     uuid: '3a6f21f8e25a4bb491757d65afbe6056',
     bank: 0,
     purse: 0,
+    lastJoin: "null",
     bank2: 0,
-    purse2: 0
+    purse2: 0,
+    lastJoin2: "null"
 }
 
 let logy = {
     uuid: '1578ebb294cd46249e9e9ab7db42e723',
     bank: 0,
     purse: 0,
+    lastJoin: "null",
     bank2: 0,
-    purse2: 0
+    purse2: 0,
+    lastJoin2: "null"
 }
 
 let mas = {
     uuid: '34b3fff2f8564396ad145e8ec2d9646a',
     bank: 0,
     purse: 0,
+    lastJoin: "null",
     bank2: 0,
-    purse2: 0
+    purse2: 0,
+    lastJoin2: "null"
 }
 let lastJoin
 
@@ -71,10 +80,13 @@ async function getBalance(){
         const data2 = await response2.json()
 
         small.bank = new Intl.NumberFormat().format(data2.banking.balance)
-        small.purse = new Intl.NumberFormat().format(data2.members[small.uuid].coin_purse)              
+        small.purse = new Intl.NumberFormat().format(data2.members[small.uuid].coin_purse)   
+        small.lastJoin = new Date(data2.members[small.uuid].last_save).toDateString().substring(4)
+
 
         document.getElementById("Sbal").innerHTML +=  document.getElementById("Sbal").innerHTML += (
             "<h4 class = 'heading' >Zucchini:</h4>" +
+            "Last Online: " + small.lastJoin + "<br>" +
             "Bank: $" + small.bank + "<br>"
          +  "Purse: $" + small.purse 
         )
@@ -85,10 +97,14 @@ async function getBalance(){
         const data3 = await response3.json()
 
         small.bank2 = new Intl.NumberFormat().format(data3.banking.balance)
-        small.purse2 =  new Intl.NumberFormat().format(data3.members[small.uuid].coin_purse)              
+        small.purse2 =  new Intl.NumberFormat().format(data3.members[small.uuid].coin_purse)
+        
+        small.lastJoin2 = new Date(data3.members[small.uuid].last_save).toDateString().substring(4)
+
 
         document.getElementById("Sbal").innerHTML += (
             "<h4 class = 'heading' >Pomegranate:</h4>" +
+            "Last Online: " + small.lastJoin2 + "<br>" +
             "Bank: $" + small.bank2 + "<br>"
          +  "Purse: $" + small.purse2 
         )                    
@@ -100,10 +116,13 @@ async function getBalance(){
         const data4 = await response4.json()
 
         pat.bank = new Intl.NumberFormat().format(data4.banking.balance)
-        pat.purse =  new Intl.NumberFormat().format(data4.members[pat.uuid].coin_purse)              
+        pat.purse =  new Intl.NumberFormat().format(data4.members[pat.uuid].coin_purse)
+        pat.lastJoin = new Date(data4.members[pat.uuid].last_save).toDateString().substring(4)
+    
 
         document.getElementById("Pbal").innerHTML += (
             "<h4 class = 'heading' >Blueberry:</h4>" +
+            "Last Online: " + pat.lastJoin + "<br>" +
             "Bank: $" + pat.bank + "<br>"
          +  "Purse: $" + pat.purse 
         )
@@ -115,9 +134,11 @@ async function getBalance(){
 
         pat.bank2 = new Intl.NumberFormat().format(data5.banking.balance)
         pat.purse2 =  new Intl.NumberFormat().format(data5.members[pat.uuid].coin_purse)              
+        pat.lastJoin2 = new Date(data5.members[pat.uuid].last_save).toDateString().substring(4)
 
         document.getElementById("Pbal").innerHTML += (
             "<h4 class = 'heading' >Coconut:</h4>" +
+            "Last Online: " + pat.lastJoin2 + "<br>" +
             "Bank: $" + pat.bank2 + "<br>"
          +  "Purse: $" + pat.purse2
         )
@@ -131,9 +152,11 @@ async function getBalance(){
 
         defunk.bank = new Intl.NumberFormat().format(data6.banking.balance)
         defunk.purse =  new Intl.NumberFormat().format(data6.members[defunk.uuid].coin_purse)              
+        defunk.lastJoin = new Date(data6.members[defunk.uuid].last_save).toDateString().substring(4)
 
         document.getElementById("S1bal").innerHTML  += (
             "<h4 class = 'heading' >Papaya:</h4>" +
+            "Last Online: " + defunk.lastJoin + "<br>" +
             "Bank: $" + defunk.bank + "<br>"
          +  "Purse: $" + defunk.purse
         )
@@ -145,9 +168,12 @@ async function getBalance(){
         const data7 = await response7.json()
 
         defunk.bank2 = new Intl.NumberFormat().format(data7.banking.balance)
-        defunk.purse2 =  new Intl.NumberFormat().format(data7.members[defunk.uuid].coin_purse)              
+        defunk.purse2 =  new Intl.NumberFormat().format(data7.members[defunk.uuid].coin_purse)       
+        defunk.lastJoin2 = new Date(data7.members[defunk.uuid].last_save).toDateString().substring(4)
+       
         document.getElementById("S1bal").innerHTML  += (
             "<h4 class = 'heading' >Peach:</h4>" +
+            "Last Online: " + defunk.lastJoin2 + "<br>" +
             "Bank: $" + defunk.bank2 + "<br>"
          +  "Purse: $" + defunk.purse2
         )
@@ -161,17 +187,13 @@ async function getBalance(){
 
         logy.bank = new Intl.NumberFormat().format(data8.banking.balance)
         logy.purse =  new Intl.NumberFormat().format(data8.members[logy.uuid].coin_purse)         
+        logy.lastJoin = new Date(data8.members[logy.uuid].last_save).toDateString().substring(4)
+
         
-        lastJoin = data8.members[logy.uuid].last_save
 
-        var date = new Date(lastJoin);
-        let strDate = date.toDateString()
-        strDate = strDate.substring(4)
-
-   
-    
         document.getElementById("Lbal").innerHTML += (
             "<h4 class = 'heading' >Mango:</h4>" +
+            "Last Online: " + logy.lastJoin + "<br>" +
             "Bank: $" + logy.bank + "<br>"
          +  "Purse: $" + logy.purse
         )
@@ -183,9 +205,11 @@ async function getBalance(){
 
         logy.bank2 = new Intl.NumberFormat().format(data9.banking.balance)
         logy.purse2 =  new Intl.NumberFormat().format(data9.members[logy.uuid].coin_purse)              
+        logy.lastJoin2 = new Date(data9.members[logy.uuid].last_save).toDateString().substring(4)
 
         document.getElementById("Lbal").innerHTML  += (
             "<h4 class = 'heading' >Blueberry:</h4>" +
+            "Last Online: " + logy.lastJoin2 + "<br>" +
             "Bank: $" + logy.bank2 + "<br>"
          +  "Purse: $" + logy.purse2
         )
@@ -199,9 +223,11 @@ async function getBalance(){
 
         mas.bank = new Intl.NumberFormat().format(data10.banking.balance)
         mas.purse =  new Intl.NumberFormat().format(data10.members[mas.uuid].coin_purse)              
+        mas.lastJoin = new Date(data10.members[mas.uuid].last_save).toDateString().substring(4)
 
         document.getElementById("Mbal").innerHTML += (
             "<h4 class = 'heading' >Pineapple:</h4>" +
+            "Last Online: " + mas.lastJoin + "<br>" +
             "Bank: $" + mas.bank + "<br>"
          +  "Purse: $" + mas.purse
         )
@@ -214,9 +240,11 @@ async function getBalance(){
 
         mas.bank2 = new Intl.NumberFormat().format(data11.banking.balance)
         mas.purse2 =  new Intl.NumberFormat().format(data11.members[mas.uuid].coin_purse)              
+        mas.lastJoin2 = new Date(data11.members[mas.uuid].last_save).toDateString().substring(4)
 
         document.getElementById("Mbal").innerHTML += (
             "<h4 class = 'heading' >Mango:</h4>" +
+            "Last Online: " + mas.lastJoin2 + "<br>" +
             "Bank: $" + mas.bank2 + "<br>"
          +  "Purse: $" + mas.purse2
         )
