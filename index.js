@@ -277,9 +277,6 @@ async function getBalance(){
         document.getElementById("Bbal").innerHTML += (
            "$" + total
         )
-        document.getElementById("Bbal").innerHTML += (
-           "<br> Last Login: " + strDate
-         )
 } 
 getBalance()
 
